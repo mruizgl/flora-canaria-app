@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68472e9a-5efd-45c0-8c42-90b09aba13f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/RolesServiceSoapImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/RolesServiceSoapInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/UserServiceSoapImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/UserServiceSoapInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/cxf-service.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flora-app-2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/PlantsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Characteristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Favorite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Plant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/PlantRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "soap",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/dam/flora-canaria-app/flora-app-2"
+    "last_opened_file_path": "/home/dam/flora-canaria-app/flora-app"
   }
 }]]></component>
   <component name="RunManager">
