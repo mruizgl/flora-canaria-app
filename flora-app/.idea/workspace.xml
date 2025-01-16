@@ -5,17 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68472e9a-5efd-45c0-8c42-90b09aba13f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../flora-app-2/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/PlantsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Characteristic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Favorite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Plant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/PlantRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/CategoriesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/CharacteristicsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/FavoritesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/LocationsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/RolsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Rol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/CharactericRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/FavoriteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/LocationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/repository/RolRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/CategoryServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/CharacteristicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/CharacteristicServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/FavoriteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/FavoriteServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/LocationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/LocationServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/RolService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/RolServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/CategoriesServiceSoapImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/CategoriesServiceSoapInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/CharacteristicsServiceSoapImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/CharacteristicsServiceSoapInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/FavoritesServiceSoapImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/FavoritesServiceSoapInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/LocationsServiceSoapImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/LocationsServiceSoapInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/PlantsServiceSoapImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/soap/service/PlantsServiceSoapInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/PlantsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/controller/PlantsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantServiceInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iespuerto/mr/flora_app/service/PlantServiceInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cxf-service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cxf-service.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +64,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -59,7 +84,7 @@
     "Application.FloraAppApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "soap",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/dam/flora-canaria-app/flora-app"
   }

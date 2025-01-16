@@ -17,8 +17,14 @@
                     address="/rols">
     </jaxws:endpoint>
 
+    <jaxws:endpoint id="plantServiceEndpoint"
+                    implementor="#plantServiceImpl"
+                    address="/plants">
+    </jaxws:endpoint>
+
     <!-- Bean del servicio implementado -->
     <bean id="userServiceImpl" class="es.iespuerto.mr.flora_app.soap.service.UserServiceSoapImpl"/>
     <bean id="rolsServiceImpl" class="es.iespuerto.mr.flora_app.soap.service.RolesServiceSoapImpl"/>
+    <bean id="plantServiceImpl" class="es.iespuerto.mr.flora_app.soap.service.PlantServiceSoapImpl"/>
 
 </beans>
