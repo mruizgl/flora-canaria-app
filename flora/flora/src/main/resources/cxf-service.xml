@@ -42,6 +42,12 @@
                     address="/favoritePlants">
     </jaxws:endpoint>
 
+    <!-- Definición del servicio para Location -->
+    <jaxws:endpoint id="locationServiceEndpoint"
+                    implementor="#locationServiceImpl"
+                    address="/locations">
+    </jaxws:endpoint>
+
     <!-- Bean del servicio implementado para User -->
     <bean id="userServiceImpl" class="es.iespuerto.mr.flora.soap.service.UserServiceSoapImpl"/>
 
@@ -59,5 +65,8 @@
 
     <!-- Bean del servicio implementado para FavoritePlant -->
     <bean id="favoriteServiceImpl" class="es.iespuerto.mr.flora.soap.service.FavoriteServiceSoapImpl"/>
+
+    <!-- Bean del servicio implementado para Location -->
+    <bean id="locationServiceImpl" class="es.iespuerto.mr.flora.soap.service.LocationServiceSoapImpl"/>
 
 </beans>
