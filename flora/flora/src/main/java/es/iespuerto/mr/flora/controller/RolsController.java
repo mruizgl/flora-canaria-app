@@ -15,23 +15,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador encargado de gestionar los roles dentro de la aplicación.
+ * Permite obtener, crear, actualizar y eliminar roles a través de una API RESTful.
+ *
+ * @autor Melissa Ruiz
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class RolsController {
 
     private RoleServiceInterface roleService;
 
+    /**
+     * Inyección de dependencias para el servicio de roles.
+     *
+     * @param roleService el servicio que gestiona las operaciones de roles.
+     */
     @Autowired
     public void setRoleService(RoleServiceInterface roleService) {
         this.roleService = roleService;
     }
 
+    /**
+     * Obtiene todos los roles registrados en el sistema.
+     *
+     * @return una lista de objetos {@link Role} representando todos los roles disponibles.
+     */
     @Operation(summary = "Get all roles")
     @GetMapping("/roles/")
     public List<Role> getAllRoles() {
         return roleService.getAllRols();
     }
 
+    /**
+     * Obtiene un rol por su ID.
+     *
+     * @param roleId el ID del rol a obtener.
+     * @return una respuesta {@link ResponseEntity} con el rol solicitado.
+     * @throws ResourceNotFoundException si no se encuentra el rol con el ID proporcionado.
+     */
     @Operation(summary = "Get role by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -43,6 +66,12 @@ public class RolsController {
         return ResponseEntity.ok().body(role);
     }
 
+    /**
+     * Crea un nuevo rol en el sistema.
+     *
+     * @param role el objeto {@link Role} que contiene los detalles del nuevo rol.
+     * @return el rol creado.
+     */
     @Operation(summary = "Insert role")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Role created successfully"),
@@ -53,6 +82,14 @@ public class RolsController {
         return roleService.createRol(role);
     }
 
+    /**
+     * Actualiza los detalles de un rol existente.
+     *
+     * @param roleId el ID del rol a actualizar.
+     * @param roleDetails el objeto {@link Role} con los nuevos detalles del rol.
+     * @return una respuesta {@link ResponseEntity} con el rol actualizado.
+     * @throws ResourceNotFoundException si no se encuentra el rol con el ID proporcionado.
+     */
     @Operation(summary = "Update role")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Role updated successfully"),
@@ -65,6 +102,13 @@ public class RolsController {
         return ResponseEntity.ok(updatedRole);
     }
 
+    /**
+     * Elimina un rol por su ID.
+     *
+     * @param roleId el ID del rol a eliminar.
+     * @return un mapa con la clave "deleted" y el valor {@code true} si el rol fue eliminado exitosamente.
+     * @throws ResourceNotFoundException si no se encuentra el rol con el ID proporcionado.
+     */
     @Operation(summary = "Delete role")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Role deleted successfully"),

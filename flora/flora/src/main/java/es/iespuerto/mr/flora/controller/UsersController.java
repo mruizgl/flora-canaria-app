@@ -22,24 +22,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador encargado de gestionar los usuarios dentro de la aplicación.
+ * Permite obtener, crear, actualizar y eliminar usuarios a través de una API RESTful.
+ *
+ * @autor Melissa Ruiz
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class UsersController {
 
     private UserServiceInterface userService;
 
+    /**
+     * Inyección de dependencias para el servicio de usuarios.
+     *
+     * @param userService el servicio que gestiona las operaciones de usuarios.
+     */
     @Autowired
     public void setUserRepository(UserServiceInterface userService) {
         this.userService = userService;
     }
 
-
+    /**
+     * Obtiene todos los usuarios registrados en el sistema.
+     *
+     * @return una lista de objetos {@link User} representando todos los usuarios disponibles.
+     */
     @Operation(summary = "Get all users")
     @GetMapping("/users/")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    /**
+     * Obtiene un usuario por su ID.
+     *
+     * @param userId el ID del usuario a obtener.
+     * @return una respuesta {@link ResponseEntity} con el usuario solicitado.
+     * @throws ResourceNotFoundException si no se encuentra el usuario con el ID proporcionado.
+     */
     @Operation(summary = "Get user by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -51,6 +73,12 @@ public class UsersController {
         return ResponseEntity.ok().body(user);
     }
 
+    /**
+     * Crea un nuevo usuario en el sistema.
+     *
+     * @param user el objeto {@link User} que contiene los detalles del nuevo usuario.
+     * @return el usuario creado.
+     */
     @Operation(summary = "Insert user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User created successfully"),
@@ -61,6 +89,14 @@ public class UsersController {
         return userService.createUser(user);
     }
 
+    /**
+     * Actualiza los detalles de un usuario existente.
+     *
+     * @param userId el ID del usuario a actualizar.
+     * @param userDetails el objeto {@link User} con los nuevos detalles del usuario.
+     * @return una respuesta {@link ResponseEntity} con el usuario actualizado.
+     * @throws ResourceNotFoundException si no se encuentra el usuario con el ID proporcionado.
+     */
     @Operation(summary = "Update user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User updated successfully"),
@@ -73,6 +109,13 @@ public class UsersController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    /**
+     * Elimina un usuario por su ID.
+     *
+     * @param userId el ID del usuario a eliminar.
+     * @return un mapa con la clave "deleted" y el valor {@code true} si el usuario fue eliminado exitosamente.
+     * @throws ResourceNotFoundException si no se encuentra el usuario con el ID proporcionado.
+     */
     @Operation(summary = "Delete user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User deleted successfully"),

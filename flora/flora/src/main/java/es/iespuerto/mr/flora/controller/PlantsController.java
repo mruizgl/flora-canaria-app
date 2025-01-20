@@ -22,23 +22,48 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador que maneja las operaciones CRUD para las plantas.
+ * <p>
+ * Este controlador permite obtener, crear, actualizar y eliminar plantas en la aplicación.
+ * </p>
+ *
+ * @autor Melissa Ruiz
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class PlantsController {
 
     private PlantServiceInterface plantService;
 
+    /**
+     * Inyección de dependencias para el servicio de plantas.
+     *
+     * @param plantService el servicio que gestiona las plantas.
+     */
     @Autowired
     public void setPlantService(PlantServiceInterface plantService) {
         this.plantService = plantService;
     }
 
+    /**
+     * Obtiene todas las plantas de la base de datos.
+     *
+     * @return una lista de todas las plantas.
+     */
     @Operation(summary = "Get all plants")
     @GetMapping("/plants/")
     public List<Plant> getAllPlants() {
         return plantService.getAllPlants();
     }
 
+    /**
+     * Obtiene una planta por su ID.
+     *
+     * @param plantId el ID de la planta a obtener.
+     * @return una respuesta con la planta solicitada.
+     * @throws ResourceNotFoundException si no se encuentra la planta con el ID proporcionado.
+     */
     @Operation(summary = "Get plant by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -50,6 +75,12 @@ public class PlantsController {
         return ResponseEntity.ok().body(plant);
     }
 
+    /**
+     * Crea una nueva planta.
+     *
+     * @param plant los datos de la planta a crear.
+     * @return la planta creada.
+     */
     @Operation(summary = "Insert plant")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Plant created successfully"),
@@ -60,6 +91,14 @@ public class PlantsController {
         return plantService.createPlant(plant);
     }
 
+    /**
+     * Actualiza una planta existente.
+     *
+     * @param plantId el ID de la planta a actualizar.
+     * @param plantDetails los nuevos detalles de la planta.
+     * @return la planta actualizada.
+     * @throws ResourceNotFoundException si no se encuentra la planta con el ID proporcionado.
+     */
     @Operation(summary = "Update plant")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Plant updated successfully"),
@@ -72,6 +111,13 @@ public class PlantsController {
         return ResponseEntity.ok(updatedPlant);
     }
 
+    /**
+     * Elimina una planta por su ID.
+     *
+     * @param plantId el ID de la planta a eliminar.
+     * @return una respuesta indicando si la planta fue eliminada con éxito.
+     * @throws ResourceNotFoundException si no se encuentra la planta con el ID proporcionado.
+     */
     @Operation(summary = "Delete plant")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Plant deleted successfully"),

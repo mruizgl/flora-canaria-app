@@ -15,23 +15,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador que maneja las operaciones relacionadas con las categorías.
+ * Permite obtener, crear, actualizar y eliminar categorías.
+ * <p>
+ * @author Melissa Ruiz (@mruizgl en github)
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class CategoriesController {
 
     private CategoryServiceInterface categoryService;
 
+    /**
+     * Constructor que inyecta el servicio de categorías.
+     *
+     * @param categoryService Servicio para manejar las categorías.
+     */
     @Autowired
     public void setCategoryService(CategoryServiceInterface categoryService) {
         this.categoryService = categoryService;
     }
 
+    /**
+     * Obtiene todas las categorías disponibles.
+     *
+     * @return Lista de categorías.
+     */
     @Operation(summary = "Get all categories")
     @GetMapping("/categories/")
     public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
+    /**
+     * Obtiene una categoría específica por su ID.
+     *
+     * @param categoryId El ID de la categoría a obtener.
+     * @return La categoría correspondiente al ID proporcionado.
+     * @throws ResourceNotFoundException Si la categoría no se encuentra.
+     */
     @Operation(summary = "Get category by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -43,6 +66,12 @@ public class CategoriesController {
         return ResponseEntity.ok().body(category);
     }
 
+    /**
+     * Crea una nueva categoría.
+     *
+     * @param category Los detalles de la categoría a crear.
+     * @return La categoría creada.
+     */
     @Operation(summary = "Insert category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Category created successfully"),
@@ -53,6 +82,14 @@ public class CategoriesController {
         return categoryService.createCategory(category);
     }
 
+    /**
+     * Actualiza los detalles de una categoría existente.
+     *
+     * @param categoryId El ID de la categoría a actualizar.
+     * @param categoryDetails Los nuevos detalles de la categoría.
+     * @return La categoría actualizada.
+     * @throws ResourceNotFoundException Si la categoría no se encuentra.
+     */
     @Operation(summary = "Update category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Category updated successfully"),
@@ -65,6 +102,13 @@ public class CategoriesController {
         return ResponseEntity.ok(updatedCategory);
     }
 
+    /**
+     * Elimina una categoría específica por su ID.
+     *
+     * @param categoryId El ID de la categoría a eliminar.
+     * @return Un mapa indicando si la categoría fue eliminada exitosamente.
+     * @throws ResourceNotFoundException Si la categoría no se encuentra.
+     */
     @Operation(summary = "Delete category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Category deleted successfully"),

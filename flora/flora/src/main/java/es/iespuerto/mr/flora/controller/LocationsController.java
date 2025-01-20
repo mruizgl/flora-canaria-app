@@ -22,23 +22,48 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Controlador que maneja las operaciones CRUD para las ubicaciones.
+ * <p>
+ * Este controlador permite obtener, crear, actualizar y eliminar ubicaciones en la aplicación.
+ * </p>
+ *
+ * @autor Melissa Ruiz
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class LocationsController {
 
     private LocationServiceInterface locationService;
 
+    /**
+     * Inyección de dependencias para el servicio de ubicaciones.
+     *
+     * @param locationService el servicio que gestiona las ubicaciones.
+     */
     @Autowired
     public void setLocationService(LocationServiceInterface locationService) {
         this.locationService = locationService;
     }
 
+    /**
+     * Obtiene todas las ubicaciones de la base de datos.
+     *
+     * @return una lista de todas las ubicaciones.
+     */
     @Operation(summary = "Get all locations")
     @GetMapping("/locations/")
     public List<Location> getAllLocations() {
         return locationService.getAllLocations();
     }
 
+    /**
+     * Obtiene una ubicación por su ID.
+     *
+     * @param locationId el ID de la ubicación a obtener.
+     * @return una respuesta con la ubicación solicitada.
+     * @throws ResourceNotFoundException si no se encuentra la ubicación con el ID proporcionado.
+     */
     @Operation(summary = "Get location by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -50,6 +75,12 @@ public class LocationsController {
         return ResponseEntity.ok().body(location);
     }
 
+    /**
+     * Crea una nueva ubicación.
+     *
+     * @param location los datos de la ubicación a crear.
+     * @return la ubicación creada.
+     */
     @Operation(summary = "Insert location")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Location created successfully"),
@@ -60,6 +91,14 @@ public class LocationsController {
         return locationService.createLocation(location);
     }
 
+    /**
+     * Actualiza una ubicación existente.
+     *
+     * @param locationId el ID de la ubicación a actualizar.
+     * @param locationDetails los nuevos detalles de la ubicación.
+     * @return la ubicación actualizada.
+     * @throws ResourceNotFoundException si no se encuentra la ubicación con el ID proporcionado.
+     */
     @Operation(summary = "Update location")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Location updated successfully"),
@@ -72,6 +111,13 @@ public class LocationsController {
         return ResponseEntity.ok(updatedLocation);
     }
 
+    /**
+     * Elimina una ubicación por su ID.
+     *
+     * @param locationId el ID de la ubicación a eliminar.
+     * @return una respuesta indicando si la ubicación fue eliminada con éxito.
+     * @throws ResourceNotFoundException si no se encuentra la ubicación con el ID proporcionado.
+     */
     @Operation(summary = "Delete location")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Location deleted successfully"),
