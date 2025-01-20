@@ -24,6 +24,12 @@
                     address="/plants">
     </jaxws:endpoint>
 
+    <!-- Definición del servicio para Category -->
+    <jaxws:endpoint id="categoryServiceEndpoint"
+                    implementor="#categoryServiceImpl"
+                    address="/categories">
+    </jaxws:endpoint>
+
     <!-- Bean del servicio implementado para User -->
     <bean id="userServiceImpl" class="es.iespuerto.mr.flora.soap.service.UserServiceSoapImpl"/>
 
@@ -32,5 +38,8 @@
 
     <!-- Bean del servicio implementado para Plant -->
     <bean id="plantServiceImpl" class="es.iespuerto.mr.flora.soap.service.PlantServiceSoapImpl"/>
+
+    <!-- Bean del servicio implementado para Category -->
+    <bean id="categoryServiceImpl" class="es.iespuerto.mr.flora.soap.service.CategoryServiceSoapImpl"/>
 
 </beans>
