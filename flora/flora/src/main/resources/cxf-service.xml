@@ -30,6 +30,18 @@
                     address="/categories">
     </jaxws:endpoint>
 
+    <!-- Definición del servicio para Characteristic -->
+    <jaxws:endpoint id="characteristicServiceEndpoint"
+                    implementor="#characteristicServiceImpl"
+                    address="/characteristics">
+    </jaxws:endpoint>
+
+    <!-- Definición del servicio para FavoritePlant -->
+    <jaxws:endpoint id="favoriteServiceEndpoint"
+                    implementor="#favoriteServiceImpl"
+                    address="/favoritePlants">
+    </jaxws:endpoint>
+
     <!-- Bean del servicio implementado para User -->
     <bean id="userServiceImpl" class="es.iespuerto.mr.flora.soap.service.UserServiceSoapImpl"/>
 
@@ -41,5 +53,11 @@
 
     <!-- Bean del servicio implementado para Category -->
     <bean id="categoryServiceImpl" class="es.iespuerto.mr.flora.soap.service.CategoryServiceSoapImpl"/>
+
+    <!-- Bean del servicio implementado para Characteristic -->
+    <bean id="characteristicServiceImpl" class="es.iespuerto.mr.flora.soap.service.CharacteristicServiceSoapImpl"/>
+
+    <!-- Bean del servicio implementado para FavoritePlant -->
+    <bean id="favoriteServiceImpl" class="es.iespuerto.mr.flora.soap.service.FavoriteServiceSoapImpl"/>
 
 </beans>
