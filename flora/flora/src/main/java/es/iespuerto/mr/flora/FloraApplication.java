@@ -29,14 +29,14 @@ public class FloraApplication {
 
 	@PostConstruct
 	private void initDb() {
-		System.out.println(String.format("****** Creating table: %s, and Inserting test data ******", "users"));
+		System.out.println(String.format("****** Creating table: %s, and Inserting test data ******", "plants"));
 
 		// Cambiar "serial" por "auto_increment" para H2
 		String sqlStatements[] = {
-				"drop table if exists users",
-				"create table users(id int auto_increment, name varchar(255), primary key (id))",
-				"insert into users(name) values('Manuel')",
-				"insert into users(name) values('Pedro')"
+				"drop table if exists plants",
+				"create table plants(id int auto_increment, common_name varchar(255), scientific_name varchar(255), primary key (id))",
+				"insert into plants(common_name, scientific_name) values('Rosa', 'Rosa spp.')",
+				"insert into plants(common_name, scientific_name) values('Tulipán', 'Tulipa spp.')"
 		};
 
 		Arrays.asList(sqlStatements).stream().forEach(sql -> {
@@ -44,14 +44,15 @@ public class FloraApplication {
 			jdbcTemplate.execute(sql);
 		});
 
-		System.out.println(String.format("****** Fetching from table: %s ******", "users"));
-		jdbcTemplate.query("select id, name from users",
+		System.out.println(String.format("****** Fetching from table: %s ******", "plants"));
+		jdbcTemplate.query("select id, common_name, scientific_name from plants",
 				new RowMapper<Object>() {
 					@Override
 					public Object mapRow(ResultSet rs, int i) throws SQLException {
-						System.out.println(String.format("id:%s, name:%s",
+						System.out.println(String.format("id:%s, common_name:%s, scientific_name:%s",
 								rs.getString("id"),
-								rs.getString("name")));
+								rs.getString("common_name"),
+								rs.getString("scientific_name")));
 						return null;
 					}
 				});

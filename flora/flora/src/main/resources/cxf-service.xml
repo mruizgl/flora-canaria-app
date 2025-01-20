@@ -18,10 +18,19 @@
                     address="/roles">
     </jaxws:endpoint>
 
+    <!-- Definición del servicio para Plant -->
+    <jaxws:endpoint id="plantServiceEndpoint"
+                    implementor="#plantServiceImpl"
+                    address="/plants">
+    </jaxws:endpoint>
+
     <!-- Bean del servicio implementado para User -->
     <bean id="userServiceImpl" class="es.iespuerto.mr.flora.soap.service.UserServiceSoapImpl"/>
 
     <!-- Bean del servicio implementado para Role -->
     <bean id="roleServiceImpl" class="es.iespuerto.mr.flora.soap.service.RoleServiceSoapImpl"/>
+
+    <!-- Bean del servicio implementado para Plant -->
+    <bean id="plantServiceImpl" class="es.iespuerto.mr.flora.soap.service.PlantServiceSoapImpl"/>
 
 </beans>
