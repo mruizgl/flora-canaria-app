@@ -1,5 +1,7 @@
 package es.iespuerto.mr.flora;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,6 +20,7 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @ImportResource("classpath:cxf-service.xml")
+@OpenAPIDefinition(info = @Info(title = "Flora API", version = "1.0", description = "Demo API for Flora"))
 public class FloraApplication {
 
 	@Autowired
