@@ -31,4 +31,31 @@ public class CharacteristicServiceSoapImpl implements CharacteristicServiceSoapI
             throw new WebServiceException("Error obteniendo la característica", e);
         }
     }
+
+    @Override
+    public Characteristic createCharacteristic(Characteristic characteristic) {
+        try {
+            return characteristicService.createCharacteristic(characteristic);
+        } catch (Exception e) {
+            throw new WebServiceException("Error creando la característica", e);
+        }
+    }
+
+    @Override
+    public Characteristic updateCharacteristic(int characteristicId, Characteristic characteristicDetails) {
+        try {
+            return characteristicService.updateCharacteristic(characteristicId, characteristicDetails);
+        } catch (Exception e) {
+            throw new WebServiceException("Error actualizando la característica", e);
+        }
+    }
+
+    @Override
+    public void deleteCharacteristic(int characteristicId) {
+        try {
+            characteristicService.deleteCharacteristic(characteristicId);
+        } catch (Exception e) {
+            throw new WebServiceException("Error eliminando la característica", e);
+        }
+    }
 }

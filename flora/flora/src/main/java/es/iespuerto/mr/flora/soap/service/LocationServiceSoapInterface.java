@@ -16,5 +16,18 @@ public interface LocationServiceSoapInterface {
     List<Location> getAllLocations();
 
     @WebMethod
+    @WebResult(name = "location")
     Location getLocationById(@WebParam(name = "locationId") int locationId);
+
+    @WebMethod
+    @WebResult(name = "location")
+    Location createLocation(@WebParam(name = "location") Location location);
+
+    @WebMethod
+    @WebResult(name = "location")
+    Location updateLocation(@WebParam(name = "locationId") int locationId,
+                            @WebParam(name = "locationDetails") Location locationDetails);
+
+    @WebMethod
+    void deleteLocation(@WebParam(name = "locationId") int locationId);
 }

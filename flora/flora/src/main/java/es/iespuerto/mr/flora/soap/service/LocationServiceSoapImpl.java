@@ -31,4 +31,31 @@ public class LocationServiceSoapImpl implements LocationServiceSoapInterface {
             throw new WebServiceException("Error obteniendo la ubicación", e);
         }
     }
+
+    @Override
+    public Location createLocation(Location location) {
+        try {
+            return locationService.createLocation(location);
+        } catch (Exception e) {
+            throw new WebServiceException("Error creando la ubicación", e);
+        }
+    }
+
+    @Override
+    public Location updateLocation(int locationId, Location locationDetails) {
+        try {
+            return locationService.updateLocation(locationId, locationDetails);
+        } catch (Exception e) {
+            throw new WebServiceException("Error actualizando la ubicación", e);
+        }
+    }
+
+    @Override
+    public void deleteLocation(int locationId) {
+        try {
+            locationService.deleteLocation(locationId);
+        } catch (Exception e) {
+            throw new WebServiceException("Error eliminando la ubicación", e);
+        }
+    }
 }

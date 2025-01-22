@@ -16,5 +16,18 @@ public interface CategoryServiceSoapInterface {
     List<Category> getAllCategories();
 
     @WebMethod
+    @WebResult(name = "category")
     Category getCategoryById(@WebParam(name = "categoryId") int categoryId);
+
+    @WebMethod
+    @WebResult(name = "category")
+    Category createCategory(@WebParam(name = "category") Category category);
+
+    @WebMethod
+    @WebResult(name = "category")
+    Category updateCategory(@WebParam(name = "categoryId") int categoryId,
+                            @WebParam(name = "categoryDetails") Category categoryDetails);
+
+    @WebMethod
+    void deleteCategory(@WebParam(name = "categoryId") int categoryId);
 }
