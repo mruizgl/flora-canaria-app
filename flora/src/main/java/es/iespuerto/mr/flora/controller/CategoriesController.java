@@ -21,6 +21,23 @@ import java.util.Map;
  * <p>
  * @author Melissa Ruiz (@mruizgl en github)
  */
+/**
+ * Controlador REST para manejar las operaciones relacionadas con las categorías.
+ * Proporciona endpoints para obtener, crear, actualizar y eliminar categorías.
+ * 
+ * Endpoints disponibles:
+ * - GET /api/v1/categories/ : Obtiene todas las categorías disponibles.
+ * - GET /api/v1/category/{id} : Obtiene una categoría específica por su ID.
+ * - POST /api/v1/add/category/ : Crea una nueva categoría.
+ * - PUT /api/v1/update/category/{id} : Actualiza los detalles de una categoría existente.
+ * - DELETE /api/v1/delete/category/{id} : Elimina una categoría específica por su ID.
+ * 
+ * Utiliza un servicio de categorías para realizar las operaciones necesarias.
+ * 
+ * @see CategoryServiceInterface
+ * @see Category
+ * @see ResourceNotFoundException
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class CategoriesController {

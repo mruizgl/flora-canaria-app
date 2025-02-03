@@ -1,12 +1,9 @@
 package es.iespuerto.mr.flora.controller;
 
-import es.iespuerto.mr.flora.exception.ResourceNotFoundException;
-import es.iespuerto.mr.flora.model.Location;
-import es.iespuerto.mr.flora.service.LocationServiceInterface;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import es.iespuerto.mr.flora.exception.ResourceNotFoundException;
+import es.iespuerto.mr.flora.model.Location;
+import es.iespuerto.mr.flora.service.LocationServiceInterface;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 
 /**
  * Controlador que maneja las operaciones CRUD para las ubicaciones.
@@ -28,7 +29,7 @@ import java.util.Map;
  * Este controlador permite obtener, crear, actualizar y eliminar ubicaciones en la aplicación.
  * </p>
  *
- * @autor Melissa Ruiz
+ * @author Melissa Ruiz
  */
 @RestController
 @RequestMapping("/api/v1")

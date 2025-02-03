@@ -1,14 +1,10 @@
 package es.iespuerto.mr.flora.controller;
 
-import es.iespuerto.mr.flora.exception.ResourceNotFoundException;
-import es.iespuerto.mr.flora.model.Favorite;
-import es.iespuerto.mr.flora.service.FavoriteServiceInterface;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import es.iespuerto.mr.flora.exception.ResourceNotFoundException;
+import es.iespuerto.mr.flora.model.Favorite;
+import es.iespuerto.mr.flora.service.FavoriteServiceInterface;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 
 /**
  * Controlador que maneja las operaciones relacionadas con los favoritos.
  * Permite agregar, eliminar y consultar los favoritos.
- * <p>
+ * 
  * @author Melissa Ruiz (@mruizgl en github)
  */
 @RestController
