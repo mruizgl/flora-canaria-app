@@ -77,5 +77,11 @@ public interface RoleServiceInterface {
      */
     void deleteRol(int rolId) throws ResourceNotFoundException;
 
+    /**
+     * Deletes a role by its name.
+     * 
+     * @param rolId The name of the role to be deleted.
+     * @throws ResourceNotFoundException If the role with the given name does not exist.
+     */
     Role getRoleByName(String roleName) throws ResourceNotFoundException;
 }

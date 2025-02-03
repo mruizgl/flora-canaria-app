@@ -23,24 +23,44 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 
+/**
+ * Controlador REST para la gestión de usuarios.
+ * Este controlador maneja las operaciones CRUD para los usuarios.
+ */
 @RestController
 @RequestMapping("/api/v1")
 public class UsersController {
 
     private UserServiceInterface userService;
 
+    /**
+     * Constructor que inyecta el servicio de usuario.
+     * 
+     * @param userService El servicio que maneja las operaciones de usuario.
+     */
     @Autowired
     public void setUserRepository(UserServiceInterface userService) {
         this.userService = userService;
     }
 
-
+    /**
+     * Obtiene todos los usuarios registrados.
+     * 
+     * @return Una lista de usuarios.
+     */
     @Operation(summary = "Get all users")
     @GetMapping("/users/")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    /**
+     * Obtiene un usuario por su ID.
+     * 
+     * @param userId El ID del usuario que se desea obtener.
+     * @return El usuario correspondiente al ID.
+     * @throws ResourceNotFoundException Si no se encuentra el usuario con el ID dado.
+     */
     @Operation(summary = "Get user by ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -52,6 +72,12 @@ public class UsersController {
         return ResponseEntity.ok().body(user);
     }
 
+    /**
+     * Crea un nuevo usuario.
+     * 
+     * @param user El objeto usuario que se desea crear.
+     * @return El usuario creado.
+     */
     @Operation(summary = "Insert user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User created successfully"),
@@ -62,6 +88,14 @@ public class UsersController {
         return userService.createUser(user);
     }
 
+    /**
+     * Actualiza la información de un usuario.
+     * 
+     * @param userId El ID del usuario que se desea actualizar.
+     * @param userDetails Los detalles actualizados del usuario.
+     * @return El usuario actualizado.
+     * @throws ResourceNotFoundException Si no se encuentra el usuario con el ID dado.
+     */
     @Operation(summary = "Update user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User updated successfully"),
@@ -74,6 +108,13 @@ public class UsersController {
         return ResponseEntity.ok(updatedUser);
     }
 
+    /**
+     * Elimina un usuario por su ID.
+     * 
+     * @param userId El ID del usuario que se desea eliminar.
+     * @return Un mapa con el estado de la eliminación (si fue exitosa o no).
+     * @throws ResourceNotFoundException Si no se encuentra el usuario con el ID dado.
+     */
     @Operation(summary = "Delete user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User deleted successfully"),

@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
  * <p>Annotations used:</p>
  * <ul>
  *   <li>{@code @Slf4j} - For logging purposes, enabling the logging feature in the class.</li>
- *   <li>{@code @Component} - Indicates that this class is a Spring component, allowing Spring to manage it as a bean.</li>
+ *   <li>{@code @Service} - Marks this class as a Spring service, allowing Spring to manage it as a bean.</li>
  *   <li>{@code @Autowired} - Injects the {@link UserRepository} dependency into this service.</li>
  * </ul>
  * 
@@ -50,57 +50,91 @@ public class UserService implements UserServiceInterface {
 
     private final UserRepository userRepository;
 
+    /**
+     * Constructor that initializes the {@link UserRepository}.
+     * 
+     * @param userRepository The {@link UserRepository} to be injected.
+     */
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    // Obtener todos los usuarios
+    /**
+     * Retrieves all users from the database.
+     * 
+     * @return A list of all {@link User} objects.
+     */
     public List<User> getAllUsers() {
         log.info("Fetching all users");
         return userRepository.findAll();
     }
 
-    // Obtener un usuario por ID
+    /**
+     * Retrieves a user by their ID.
+     * 
+     * @param userId The ID of the user to be fetched.
+     * @return The {@link User} with the specified ID.
+     * @throws ResourceNotFoundException If no user is found for the given ID.
+     */
     public User getUserById(@PathVariable(value = "id") int userId) throws ResourceNotFoundException {
         log.info("Fetching user with id: {}", userId);
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
     }
 
-    // Crear un nuevo usuario
+    /**
+     * Creates a new user.
+     * 
+     * @param user The {@link User} object to be created.
+     * @return The created {@link User}.
+     */
     public User createUser(@Valid @RequestBody User user) {
         log.info("Creating new user with name: {}", user.getName());
         return userRepository.save(user);
     }
 
-    // Actualizar un usuario existente
+    /**
+     * Updates an existing user based on their ID.
+     * 
+     * @param userId The ID of the user to be updated.
+     * @param userDetails The new {@link User} details.
+     * @return The updated {@link User}.
+     * @throws ResourceNotFoundException If no user is found for the given ID.
+     */
     public User updateUser(@PathVariable(value = "id") int userId,
                            @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
         log.info("Updating user with id: {}", userId);
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
-        // Actualizamos los detalles del usuario
+        // Update user details
         user.setName(userDetails.getName());
-        // Aquí puedes agregar más campos si es necesario
+        // Add more fields if necessary
         return userRepository.save(user);
     }
 
+    /**
+     * Deletes a user by their ID.
+     * 
+     * @param userId The ID of the user to be deleted.
+     * @throws ResourceNotFoundException If no user is found for the given ID.
+     */
     public void deleteUser(@PathVariable(value = "id") int userId) throws ResourceNotFoundException {
         log.info("Deleting user with id: {}", userId);
     
-        // Obtener el usuario a eliminar
+        // Find the user to delete
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
     
-        
-    if (user.getRole() != null) {
-        user.setRole(null);
-        userRepository.save(user);  
-    }
+        // Remove the role association if necessary
+        if (user.getRole() != null) {
+            user.setRole(null);
+            userRepository.save(user);  
+        }
+
+        // Delete the user
         userRepository.delete(user);
         log.info("User with id: {} deleted successfully", userId);
     }
-    
 }
