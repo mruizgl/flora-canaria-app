@@ -26,6 +26,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     /**
+     * Constructor por defecto de la clase.
+     */
+    public CustomUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    /**
      * Inyecta el repositorio de usuarios {@link UserRepository} en la clase.
      * 
      * @param userRepository El repositorio que gestiona la información de usuarios en la base de datos.
