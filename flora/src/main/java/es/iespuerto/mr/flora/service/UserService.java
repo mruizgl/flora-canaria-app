@@ -3,7 +3,7 @@ package es.iespuerto.mr.flora.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -45,86 +45,62 @@ import lombok.extern.slf4j.Slf4j;
  * @see ResourceNotFoundException
  */
 @Slf4j
-@Component
+@Service
 public class UserService implements UserServiceInterface {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    /**
-     * Sets the {@link UserRepository} dependency for this service.
-     *
-     * @param userRepository the user repository to be injected.
-     */
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    /**
-     * Retrieves a list of all users from the database.
-     *
-     * @return a list of all users.
-     */
-    @Override
+    // Obtener todos los usuarios
     public List<User> getAllUsers() {
-        log.info("Realizando la llamada al servicio");
+        log.info("Fetching all users");
         return userRepository.findAll();
     }
 
-    /**
-     * Retrieves a user by their ID.
-     *
-     * @param userId the ID of the user to retrieve.
-     * @return the user with the given ID.
-     * @throws ResourceNotFoundException if no user is found with the provided ID.
-     */
-    @Override
+    // Obtener un usuario por ID
     public User getUserById(@PathVariable(value = "id") int userId) throws ResourceNotFoundException {
+        log.info("Fetching user with id: {}", userId);
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
     }
 
-    /**
-     * Creates a new user in the database.
-     *
-     * @param user the user to create.
-     * @return the created user.
-     */
-    @Override
+    // Crear un nuevo usuario
     public User createUser(@Valid @RequestBody User user) {
+        log.info("Creating new user with name: {}", user.getName());
         return userRepository.save(user);
     }
 
-    /**
-     * Updates an existing user with new details.
-     *
-     * @param userId the ID of the user to update.
-     * @param userDetails the new details for the user.
-     * @return the updated user.
-     * @throws ResourceNotFoundException if no user is found with the provided ID.
-     */
-    @Override
+    // Actualizar un usuario existente
     public User updateUser(@PathVariable(value = "id") int userId,
                            @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
+        log.info("Updating user with id: {}", userId);
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
 
+        // Actualizamos los detalles del usuario
         user.setName(userDetails.getName());
+        // Aquí puedes agregar más campos si es necesario
         return userRepository.save(user);
     }
 
-    /**
-     * Deletes a user by their ID.
-     *
-     * @param userId the ID of the user to delete.
-     * @throws ResourceNotFoundException if no user is found with the provided ID.
-     */
-    @Override
     public void deleteUser(@PathVariable(value = "id") int userId) throws ResourceNotFoundException {
+        log.info("Deleting user with id: {}", userId);
+    
+        // Obtener el usuario a eliminar
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-
-        userRepository.delete(user);
+    
+        
+    if (user.getRole() != null) {
+        user.setRole(null);
+        userRepository.save(user);  
     }
-
+        userRepository.delete(user);
+        log.info("User with id: {} deleted successfully", userId);
+    }
+    
 }

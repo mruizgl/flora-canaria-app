@@ -76,4 +76,6 @@ public interface RoleServiceInterface {
      * @throws ResourceNotFoundException If the role with the given ID does not exist.
      */
     void deleteRol(int rolId) throws ResourceNotFoundException;
+
+    Role getRoleByName(String roleName) throws ResourceNotFoundException;
 }

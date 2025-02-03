@@ -133,4 +133,10 @@ public class RoleService implements RoleServiceInterface {
 
         roleRepository.delete(role);
     }
+
+    @Override
+    public Role getRoleByName(String roleName) throws ResourceNotFoundException {
+        return roleRepository.findByName(roleName)
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found with name " + roleName));
+    }
 }
