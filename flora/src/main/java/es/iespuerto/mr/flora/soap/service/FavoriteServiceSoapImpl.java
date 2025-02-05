@@ -62,7 +62,7 @@ public class FavoriteServiceSoapImpl implements FavoriteServiceSoapInterface {
      * @return a list of all favorite plants
      */
     @Override
-    public List<Favorite> getAllFavoritePlants() {
+    public List<Favorite> getAllFavoritePlants() throws ResourceNotFoundException {
         return favoritePlantService.getAllFavoritePlants();
     }
 

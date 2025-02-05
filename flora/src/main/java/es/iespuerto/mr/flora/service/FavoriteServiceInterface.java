@@ -15,7 +15,7 @@ public interface FavoriteServiceInterface {
      *
      * @return a list of all favorite plants.
      */
-    List<Favorite> getAllFavoritePlants();
+    List<Favorite> getAllFavoritePlants() throws ResourceNotFoundException;;
 
     /**
      * Retrieves a favorite plant by its ID.

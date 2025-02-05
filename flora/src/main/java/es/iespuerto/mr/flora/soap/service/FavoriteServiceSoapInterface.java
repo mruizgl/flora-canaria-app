@@ -50,7 +50,7 @@ public interface FavoriteServiceSoapInterface {
      */
     @WebMethod
     @WebResult(name = "favoritePlant")
-    List<Favorite> getAllFavoritePlants();
+    List<Favorite> getAllFavoritePlants() throws ResourceNotFoundException;
 
     /**
      * Retrieves a specific favorite plant by its ID.
