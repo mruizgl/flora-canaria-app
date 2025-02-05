@@ -28,6 +28,10 @@ public class FloraApplication {
     @Autowired
     private PasswordEncoder passwordEncoder; // Inyectamos el PasswordEncoder desde la configuración
 
+    /**
+     * Main
+     * @param args del main
+     */
     public static void main(String[] args) {
         SpringApplication.run(FloraApplication.class, args);
     }

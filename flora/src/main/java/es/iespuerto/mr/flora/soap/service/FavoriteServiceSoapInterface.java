@@ -44,9 +44,9 @@ import jakarta.jws.WebService;
 public interface FavoriteServiceSoapInterface {
 
     /**
-     * Retrieves all favorite plants from the system.
-     * 
-     * @return a list of all favorite plants
+     * Encontrar plantas favoritas
+     * @return plantas favoritas
+     * @throws ResourceNotFoundException excepcion si no lo encuentra
      */
     @WebMethod
     @WebResult(name = "favoritePlant")

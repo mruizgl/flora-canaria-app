@@ -26,7 +26,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     /**
-     * Constructor por defecto de la clase.
+     * Constructor por defecto
+     * @param userRepository del servicio
      */
     public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
