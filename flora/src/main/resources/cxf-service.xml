@@ -69,4 +69,6 @@
     <!-- Bean del servicio implementado para Location -->
     <bean id="locationServiceImpl" class="es.iespuerto.mr.flora.soap.service.LocationServiceSoapImpl"/>
 
+    <bean id="cxfAuthInterceptor" class="es.iespuerto.mr.flora.security.interceptor.CxfAuthInterceptor"/>
+
 </beans>
