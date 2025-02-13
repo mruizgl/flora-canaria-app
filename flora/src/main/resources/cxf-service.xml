@@ -10,42 +10,63 @@
     <jaxws:endpoint id="userServiceEndpoint"
                     implementor="#userServiceImpl"
                     address="/users">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para Role -->
     <jaxws:endpoint id="roleServiceEndpoint"
                     implementor="#roleServiceImpl"
                     address="/roles">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para Plant -->
     <jaxws:endpoint id="plantServiceEndpoint"
                     implementor="#plantServiceImpl"
                     address="/plants">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para Category -->
     <jaxws:endpoint id="categoryServiceEndpoint"
                     implementor="#categoryServiceImpl"
                     address="/categories">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para Characteristic -->
     <jaxws:endpoint id="characteristicServiceEndpoint"
                     implementor="#characteristicServiceImpl"
                     address="/characteristics">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para FavoritePlant -->
     <jaxws:endpoint id="favoriteServiceEndpoint"
                     implementor="#favoriteServiceImpl"
                     address="/favoritePlants">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Definición del servicio para Location -->
     <jaxws:endpoint id="locationServiceEndpoint"
                     implementor="#locationServiceImpl"
                     address="/locations">
+        <jaxws:inInterceptors>
+            <ref bean="cxfAuthInterceptor"/>
+        </jaxws:inInterceptors>
     </jaxws:endpoint>
 
     <!-- Bean del servicio implementado para User -->
