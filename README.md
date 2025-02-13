@@ -52,5 +52,4 @@ Desarrollado con ❤️ por [Melissa Ruiz](https://github.com/mruizgl)
 ## Licencia
 Este proyecto no tiene una licencia específica.
 
-
-![alt text](./img/1.png)
+<img src="./img/1.png" width=100>
