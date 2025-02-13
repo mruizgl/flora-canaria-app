@@ -42,8 +42,15 @@ Este servicio permite obtener datos detallados sobre la flora y fauna de las Isl
 ## Pruebas
 Para probar el funcionamiento de la API, puedes utilizar herramientas como Postman o cURL para realizar peticiones HTTP a los endpoints disponibles.
 
+## Cobertura de codigo
+Cuenta con más de un 80% de cobertura de código
+![alt text](./img/cobertura.png)
+
 ## Desarrollado por
 Desarrollado con ❤️ por [Melissa Ruiz](https://github.com/mruizgl)
 
 ## Licencia
 Este proyecto no tiene una licencia específica.
+
+
+![alt text](./img/1.png)
