@@ -25,7 +25,10 @@ http://localhost:8080/services/plants?wsdl. Así nos aparecerá:
 ![alt text](./img/ejemplo.png)
 
 ## Securización
-Este servicio está securizado. Vamos a ver un ejemplo con la aplicación SOAP UI en el que si hacemos un fetch de las plantas sin usar el token del login previo, no nos permite. También en el contexto de seguridad tiene en cuenta si eres admin o si eres usuario normal. Si intentamos acceder a un recurso que solo pueden acceder los administradores siendo usuario esto es lo que ocurre:
+Este servicio está securizado. Vamos a ver un ejemplo con la aplicación SOAP UI en el que si hacemos un fetch de las plantas sin usar el token del login previo, no nos permite. También en el contexto de seguridad tiene en cuenta si eres admin o si eres usuario normal. 
+Para acceder a los recursos logueado debemos ir a la pestaña "Headers", darle al + verde y en Header poner "Authorization" y en token de prefijo "Bearer {token}".  
+
+Si intentamos acceder a un recurso que solo pueden acceder los administradores siendo usuario esto es lo que ocurre:
 ![alt text](./img/user.png)
 Una vez autenticados como administrador sí nos permite hacer el fetch:
 ![alt text](./img/autenticado.png)
@@ -54,9 +57,6 @@ Una vez autenticados como administrador sí nos permite hacer el fetch:
     ```
     mvn spring-boot:run
     ```
-
-## Pruebas
-Para probar el funcionamiento de la API, puedes utilizar herramientas como Postman o cURL para realizar peticiones HTTP a los endpoints disponibles.
 
 ## Cobertura de codigo
 Cuenta con más de un 80% de cobertura de código
